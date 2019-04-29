@@ -5,9 +5,10 @@ import (
 )
 
 func main () {
-	fmt.Println(sub())
+	fmt.Println(named_return())
 }
 
-func sub () string {
-	return "hello"
+func named_return () (hello string) {
+	hello = "hello world"
+	return hello 
 }
