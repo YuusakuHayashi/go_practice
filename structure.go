@@ -43,7 +43,6 @@ func main () {
 	u2.first = "hayashi"
 	u2.last = "yuusaku"
 	fmt.Println(u2.first, u2.last)
-*/
 	//hys_structure_declaration ()
 
 	//u := Hys{"hayashi", "yuusaku"}
@@ -54,6 +53,13 @@ func main () {
 	//y := Ysk{"hayashi", "yuusaku"}
 	y := Ysk{}
 	y.hys_method()
+	hys_variable_type ("hello")
+	hys_variable_type (23)
+	hys_type_assertion("hello")
+	hys_type_assertion(23)
+*/
+	hys_type_switch("hello")
+	hys_type_switch(23)
 }
 
 func hys_structure_declaration () {
@@ -61,3 +67,22 @@ func hys_structure_declaration () {
 	fmt.Println(u.first, u.last)
 }
 
+func hys_variable_type (any interface{}) {
+	fmt.Println(any)
+}
+
+func hys_type_assertion (any interface{}) {
+	v, b := any.(string)
+	println(v, b)
+}
+
+func hys_type_switch (any interface{}) {
+	switch any.(type) {
+		case string:
+			fmt.Println("type is string =", any)
+		case int:
+			fmt.Println("type is integer =", any)
+		default:
+			fmt.Println("type is others =", any)
+	}
+}
